@@ -33,19 +33,22 @@ class Node:
             self.rightCh.parent = self
             return True
 
-    def find(self, data):
-        """Find the node with the Data"""
+    def find(self, data, parent=None):
+        """Find the node containing data
+        @param data node data object to look up
+        @param parent node's parent
+        @returns node and node's parent if found or None, None"""
         if self.value == data:  # Got the node with data, nothing more to check. return True.
-            return True
+            return self, parent
 
         elif self.value > data:
             if self.leftCh:
-                return self.leftCh.find(data)
-            return False
+                return self.leftCh.find(data, self)
+            return None, None
         else:
             if self.rightCh:
-                return self.rightCh.find(data)
-            return False
+                return self.rightCh.find(data, self)
+            return None, None
 
     def update_parent(self, child):
         """Update based on whether I am right or left child of parent"""
@@ -125,23 +128,35 @@ class MyTriTree:
             if self.root == node:
                 self.root = node.child
             return node
+#
+bst = MyTriTree()
+# node = Node
+# bst =  MyTriTree[1, 2, 3, 4]
+# v.add_to_tree()
 
-# bst = MyTriTree()
-# # bst.add_to_tree(2)
-# # bst.add_to_tree(4)
-# # bst.add_to_tree(10)
-# # bst.add_to_tree(140)
-# # print bst.add_to_tree(5)
-# # print bst.add_to_tree(4)
+# node = Node()
+# bst.add_to_tree(2)
+bst.add_to_tree(4)
+bst.add_to_tree(10)
+print(bst.find_in_tree(4))
+# # # bst.add_to_tree(140)
+# print bst.add_to_tree('m')
+# print bst.add_to_tree(-1)
 # # print bst.add_to_tree(1)
-# # print bst.add_to_tree(6)
+# print bst.find_in_tree(4)
+# print node.root.rightCh
+
+# #print bst.add_to_tree()
+# print bst.root
+# print node.parent()
+# print bst.add_to_tree(6)
 # # print bst.find_in_tree(1)
 #
-# print bst.root
+# print node.find()
 #
 #
-# # # for i in range(1, 56):
-# # #     bst.add_to_tree(i)
+# for i in range(1, 56):
+#     bst.add_to_tree(i)
 # # print (bst.find_in_tree(6))
 # # print (bst.delete_in_tree(6))
 # # #print(bst.delete_in_tree(56))

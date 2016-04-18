@@ -15,13 +15,16 @@ class TestMyTriTree(unittest.TestCase):
         empty_tree = None
         self.assertTrue(self.tree.add_to_tree, empty_tree)
 
-   # @parameterized()
-    def test_empty_tree(self):
-        testu = 2
-        empty_tree = None
 
-        test = self.tree.add_to_tree(testu)
-        self.assertEqual(True, )
+    def test_add_tree(self):
+        testu = -2
+        self.assertTrue(self.tree.add_to_tree(testu))
+
+
+
+
+
+    # def
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
