@@ -65,8 +65,8 @@ class Node:
 
     def replace_value_with_leftn(self):
         node = self.leftCh
-        while node.righCh:
-            node = node.righCh
+        while node.rightCh:
+            node = node.rightCh
 
         # update the parent and return
         node.parent.rightCh = None
@@ -126,20 +126,25 @@ class MyTriTree:
                 self.root = node.child
             return node
 
-bst = MyTriTree()
-# bst.add_to_tree(2)
-# bst.add_to_tree(4)
-# bst.add_to_tree(10)
-# bst.add_to_tree(140)
-print bst.add_to_tree(6)
-print bst.add_to_tree(6)
-
-
-# for i in range(1, 56):
-#     bst.add_to_tree(i)
-print (bst.find_in_tree(6))
-print (bst.delete_in_tree(6))
-#print(bst.delete_in_tree(56))
-
-
-
+# bst = MyTriTree()
+# # bst.add_to_tree(2)
+# # bst.add_to_tree(4)
+# # bst.add_to_tree(10)
+# # bst.add_to_tree(140)
+# # print bst.add_to_tree(5)
+# # print bst.add_to_tree(4)
+# # print bst.add_to_tree(1)
+# # print bst.add_to_tree(6)
+# # print bst.find_in_tree(1)
+#
+# print bst.root
+#
+#
+# # # for i in range(1, 56):
+# # #     bst.add_to_tree(i)
+# # print (bst.find_in_tree(6))
+# # print (bst.delete_in_tree(6))
+# # #print(bst.delete_in_tree(56))
+# #
+#
+#
