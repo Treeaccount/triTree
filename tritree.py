@@ -3,11 +3,11 @@ __author__ = 'nataLie'
 
 class Node:
     """Class node is a node inside a Class Tree tree"""
-    def __init__(self, value):
+    def __init__(self, value, root=None, left_t=None, right_t=None, mid_t=None):
         self.value = value
-        self.leftCh = None
-        self.rightCh = None
-        self.midCh = None
+        self.leftCh = left_t
+        self.rightCh = right_t
+        self.midCh = mid_t
         self.parent = None
         self.child = None
 
@@ -19,19 +19,21 @@ class Node:
                 return self.midCh.add(data)
             self.midCh = Node(data)
             self.midCh.parent = self
-            return True
+            return self.parent, self.child
         elif self.value > data:         # Add to Left
             if self.leftCh:
                 return self.leftCh.add(data)
             self.leftCh = Node(data)
             self.leftCh.parent = self
-            return True
+            return self.parent, self.child
+
         else:                           # Add to Right
             if self.rightCh:
                 self.rightCh = Node(data)
             self.rightCh=Node(data)
             self.rightCh.parent = self
-            return True
+            return self.parent, self.child
+
 
     def find(self, data, parent=None):
         """Find the node containing data
@@ -112,7 +114,7 @@ class MyTriTree:
             return self.root.add(data)
         else:
             self.root = Node(data)
-            return True
+            return self.root
 
     def find_in_tree(self, data):
         if self.root:
@@ -136,9 +138,9 @@ bst = MyTriTree()
 
 # node = Node()
 # bst.add_to_tree(2)
-bst.add_to_tree(4)
-bst.add_to_tree(10)
-print(bst.find_in_tree(4))
+print bst.add_to_tree(4)
+#bst.add_to_tree(10)
+#print(bst.find_in_tree(4))
 # # # bst.add_to_tree(140)
 # print bst.add_to_tree('m')
 # print bst.add_to_tree(-1)

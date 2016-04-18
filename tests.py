@@ -5,6 +5,7 @@ __author__ = 'nataLie'
 
 import unittest
 import tritree
+from mock import Mock
 
 class TestMyTriTree(unittest.TestCase):
 
